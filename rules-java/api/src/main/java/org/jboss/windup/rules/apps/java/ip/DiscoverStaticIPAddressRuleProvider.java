@@ -54,7 +54,7 @@ public class DiscoverStaticIPAddressRuleProvider extends AbstractRuleProvider
                             location.setEffort(0);
                         }
                     })
-                    .where("ip").matches("\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b")
+                    .where("ip").matches("(?<!\\.)\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b(?!\\.)(?!\\s*<\\/version>)")
                     .where("type").matches("java|properties|xml")
                     .withId(getClass().getSimpleName());
     }
